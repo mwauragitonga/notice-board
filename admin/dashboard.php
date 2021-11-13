@@ -16,7 +16,6 @@ session_start();
 
 </head>
 <body>
-<header>
 
     <div>
         <?php
@@ -30,15 +29,17 @@ session_start();
         }
         ?>
     </div>
+
+    <br>
+    <br>
+    <br>
     <div class="title">
-        <h1><a href="addadminstory.php">Add Admin Story</a></h1>
+        <h1><a href="addadminstory.php">Add Story</a></h1>
 
 
     </div>
 
-    <div>
 
-    </div>
 
 
 </body>
