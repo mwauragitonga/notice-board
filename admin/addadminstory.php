@@ -49,16 +49,20 @@ if ($_SESSION['logged_in'] == true) {
 
         $(document).ready(function (){
 
-            var intervalId = window.setInterval(function () {
+            window.setInterval(function () {
                 /// call function here every second
                 updateNoticeBoard();
             }, 1000);
             function updateNoticeBoard() {
                 // Send AJAX request
                 $.ajax({
-                    url: '../notice-board.php',
-                    type: 'get',
+                    url: '../load_data.php',
+                    type: 'POST',
                     dataType: 'JSON',
+                    success:function(html){
+                        $('#show_more_main'+ID).remove();
+                        $('.postList').append(html);
+                    }
                 });
             }
         });
