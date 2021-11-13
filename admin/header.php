@@ -1,13 +1,10 @@
 <header>
-    <section>
-
-        <label for="toggle-1" class="toggle-menu"><ul><li></li> <li></li> <li></li></ul></label>
-        <input type="checkbox" id="toggle-1">
-
-        <nav>
-            <ul>
-                <li><a href="../logout.php"><i class="icon-phone"></i>Logout</a></li>
-            </ul>
-        </nav>
-
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <a href="dashboard.php" class="navbar-brand">Home</a>
+            <form class="d-flex">
+               <a href="../logout.php">  <button class="btn btn-outline-danger">Logout</button></a>
+            </form>
+        </div>
+    </nav>
 </header>

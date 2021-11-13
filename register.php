@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <!--  Meta  -->
     <meta charset="UTF-8" />
-    <title>Login</title>
+    <title>Live Notice Board System</title>
     <!--  Styles  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="login.css">
@@ -13,16 +14,17 @@
 <section class="login">
     <div class="login_box">
         <div class="left">
-            <div class="top_link">
-
-            </div>
+            <div class="top_link"><a href="index.php"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
             <div class="contact">
-                <form action="../notice-board/admin/login.php" method="POST">
-                    <h3>ADMIN LOG IN</h3>
-                    <input type="text" placeholder="USERNAME" name="username" required>
-                    <input type="password" placeholder="PASSWORD" name="password" required>
-                    <h6 style="margin-top: 10px;"><a href="register.php">I don't have an Account</a></h6>
-                    <button class="submit" type="submit">LOGIN</button>
+                <form action="admin/register.php" method="POST">
+                    <h3>SIGN UP</h3>
+                    <input type="text" placeholder="USERNAME" name="username">
+                    <input type="password" placeholder="PASSWORD" name="password">
+                    <input type="password" placeholder="CONFIRM PASSWORD" name="confPassword">
+
+                    <h6 style="margin-top: 10px;"><a href="index.php">I have an Account</a></h6>
+
+                    <button class="submit" type="submit">REGISTER</button>
                 </form>
             </div>
         </div>

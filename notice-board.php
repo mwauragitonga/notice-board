@@ -46,7 +46,7 @@
                     var stored = JSON.parse(localStorage.getItem("stories"));
                         // Construct card content
                         content = '  <div class="col-lg-3" ><div class="card" id="card">' +
-                            '<div class="card-body"> <h3 class="card-title" id="card-title"><span>title: </span>' + stored[i]["title"]  + '</h3>' +
+                            '<div class="card-body"> <h5 class="card-title" id="card-title"><span>title: </span>' + stored[i]["title"]  + '</h5>' +
                             '<small class="card-subtitle mb-2 text-muted" id="card-time"><span>date posted: ' +stored[i]["date_posted"] + ' </span></small>  <br><br>' +
                             '<p class="card-text" id="card-text">' + stored[i]["message"] + '</p></div></div></div>'
 
@@ -60,7 +60,6 @@
         });
         window.setInterval(function () {
             updateStories();
-
         }, 3000);
         function updateStories(){
             const container = document.getElementById('body');
@@ -76,22 +75,15 @@
                     console.log("new data found")
                     console.log(storiesStored)
                     console.log(data)
-                    //clear local storage
-
-                   // localStorage.clear();
-                 //   localStorage.setItem("stories", JSON.stringify(data));
                     let content = '';
                     container.innerHTML = '';
                     for (let i = 0; i < data.length; i++){
 
                             // Construct card content
                             content = '  <div class="col-lg-3" ><div class="card" id="card">' +
-                                '<div class="card-body"> <h3 class="card-title" id="card-title"><span>title: </span>' + data[i]["title"]  + '</h3>' +
+                                '<div class="card-body"> <h5 class="card-title" id="card-title"><span>title: </span>' + data[i]["title"]  + '</h5>' +
                                 '<small class="card-subtitle mb-2 text-muted" id="card-time"><span>date posted: ' +data[i]["date_posted"] + ' </span></small>  <br><br>' +
                                 '<p class="card-text" id="card-text">' + data[i]["message"] + '</p></div></div></div>'
-
-
-
 
                         //append data to fields
                         container.innerHTML += content;
