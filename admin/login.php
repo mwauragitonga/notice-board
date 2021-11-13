@@ -1,38 +1,80 @@
-<!DOCTYPE html>
+
+
+<!doctype html>
 <html lang="en">
 <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!--  Meta  -->
-    <meta charset="UTF-8" />
-    <title>Login</title>
-    <!--  Styles  -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/login.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
 </head>
-
 <body>
-<section class="login">
-    <div class="login_box">
-        <div class="left">
-            <div class="top_link">
-                <a href="../index.php"><img src="https://drive.google.com/u/0/uc?id=16U__U5dJdaTfNGobB_OpwAJ73vM50rPV&export=download" alt="">Return home</a></div>
-            <div class="contact">
-                <form action="../admin/login.php" method="POST">
-                    <h3>ADMIN LOG IN</h3>
-                    <input type="text" placeholder="USERNAME" name="username">
-                    <input type="password" placeholder="PASSWORD" name="password">
-                    <button class="submit" type="submit">LOGIN</button>
-                </form>
-            </div>
-        </div>
-        <div class="right">
-            <div class="right-text">
-                <h2></h2>
-                <h5>Opportunity Management System</h5>
-            </div>
-            <div class="right-inductor"><img src="https://lh3.googleusercontent.com/fife/ABSRlIoGiXn2r0SBm7bjFHea6iCUOyY0N2SrvhNUT-orJfyGNRSMO2vfqar3R-xs5Z4xbeqYwrEMq2FXKGXm-l_H6QAlwCBk9uceKBfG-FjacfftM0WM_aoUC_oxRSXXYspQE3tCMHGvMBlb2K1NAdU6qWv3VAQAPdCo8VwTgdnyWv08CmeZ8hX_6Ty8FzetXYKnfXb0CTEFQOVF4p3R58LksVUd73FU6564OsrJt918LPEwqIPAPQ4dMgiH73sgLXnDndUDCdLSDHMSirr4uUaqbiWQq-X1SNdkh-3jzjhW4keeNt1TgQHSrzW3maYO3ryueQzYoMEhts8MP8HH5gs2NkCar9cr_guunglU7Zqaede4cLFhsCZWBLVHY4cKHgk8SzfH_0Rn3St2AQen9MaiT38L5QXsaq6zFMuGiT8M2Md50eS0JdRTdlWLJApbgAUqI3zltUXce-MaCrDtp_UiI6x3IR4fEZiCo0XDyoAesFjXZg9cIuSsLTiKkSAGzzledJU3crgSHjAIycQN2PH2_dBIa3ibAJLphqq6zLh0qiQn_dHh83ru2y7MgxRU85ithgjdIk3PgplREbW9_PLv5j9juYc1WXFNW9ML80UlTaC9D2rP3i80zESJJY56faKsA5GVCIFiUtc3EewSM_C0bkJSMiobIWiXFz7pMcadgZlweUdjBcjvaepHBe8wou0ZtDM9TKom0hs_nx_AKy0dnXGNWI1qftTjAg=w1920-h979-ft" alt=""></div>
-        </div>
-    </div>
-</section>
+<div class="container">
+    <?php
+    // Connection info. file
+    include '../assets/db/config.php';
+
+    // Connection variables
+    $conn =getConn();
+
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+         // validate data
+        $username = test_input($_POST["username"]);
+        $password = test_input($_POST["password"]);
+
+    }
+    function test_input($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
+    }
+
+    // Query sent to database
+    $query = "SELECT username, password, user_id FROM users WHERE username = '$username'";
+    $result = mysqli_query($conn, $query);
+
+    // Variable $row hold the result of the query
+    $row = mysqli_fetch_assoc($result);
+    if($row == null){
+        echo "<div class='alert alert-danger mt-4' role='alert'>User Not Found. Try Again!
+				<p><a href='../index.php'><strong>Please try again!</strong></a></p></div>";
+    }else{
+
+
+    // Variable $hash hold the password hash on database
+    $hash =$row ['password'];
+    //verify password
+    if (password_verify($_POST['password'], $hash)) {
+//set session data
+        session_start();
+
+        $_SESSION['logged_in'] = true;
+        $_SESSION['username'] = $row['username'];
+        $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['start'] = time();
+//redirect to dashboard
+        header('location: ../admin/dashboard.php');
+
+    } else {
+        echo "<div class='alert alert-danger mt-4' role='alert'>Invalid Credentials. Try Again!
+				<p><a href='../index.php'><strong>Please try again!</strong></a></p></div>";
+    }
+    }
+    ?>
+</div>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
 </body>
 </html>

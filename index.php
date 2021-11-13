@@ -1,12 +1,6 @@
-<?php
-//including the database connection file
-include_once("assets/db/config.php");
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <!--  Meta  -->
     <meta charset="UTF-8" />
     <title>Login</title>
@@ -23,10 +17,10 @@ session_start();
 
             </div>
             <div class="contact">
-                <form action="../admin/login.php" method="POST">
+                <form action="../notice-board/admin/login.php" method="POST">
                     <h3>ADMIN LOG IN</h3>
-                    <input type="text" placeholder="USERNAME" name="username">
-                    <input type="password" placeholder="PASSWORD" name="password">
+                    <input type="text" placeholder="USERNAME" name="username" required>
+                    <input type="password" placeholder="PASSWORD" name="password" required>
                     <button class="submit" type="submit">LOGIN</button>
                 </form>
             </div>
