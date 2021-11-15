@@ -18,6 +18,20 @@
 
     // Connection variables
     $conn =getConn();
+    $dbhost	= "http://test76.interview.inisev.com/.php";	   // localhost or IP
+    $dbuser	= "kelv";		  // database username
+    $dbpass	= "12345";		     // database password
+    $dbname	= "notice_board";    // database name
+    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
+    var_dump($conn);
+    if ($conn->connect_error) {
+        die("ERROR: Unable to connect: " . $conn->connect_error);
+    }else{
+        return $conn;
+
+    }
+
+
 
     // Check connection
     if (!$conn) {
@@ -72,5 +86,5 @@
 </div>
 
 </body>
-<
+
 </html>
