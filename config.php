@@ -2,7 +2,7 @@
 
 function getConn(){
     // Connection variables
-    $dbhost	= "localhost";	   // localhost or IP
+    $dbhost	= "23.88.121.25";	   // localhost or IP
     $dbuser	= "kelv";		  // database username
     $dbpass	= "12345";		     // database password
     $dbname	= "notice_board";    // database name
