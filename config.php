@@ -3,8 +3,8 @@
 function getConn(){
     // Connection variables
     $dbhost	= "localhost";	   // localhost or IP
-    $dbuser	= "root";		  // database username
-    $dbpass	= "";		     // database password
+    $dbuser	= "kelv";		  // database username
+    $dbpass	= "12345";		     // database password
     $dbname	= "notice_board";    // database name
     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname);
     if ($conn->connect_error) {
