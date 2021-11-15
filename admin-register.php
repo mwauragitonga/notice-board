@@ -75,7 +75,7 @@
         } else {
             echo "<div class='alert alert-warning mt-4' role='alert'>
 					<p>The passwords do not match</p>
-					<p><a href='admin_register.php'>Try again here</a></p>
+					<p><a href='admin-register.php'>Try again here</a></p>
 				</div>";
         }
     }

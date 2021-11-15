@@ -17,7 +17,7 @@
 
             </div>
             <div class="contact">
-                <form action="admin_login.php" method="POST">
+                <form action="admin-login.php" method="POST">
                     <h3>ADMIN LOG IN</h3>
                     <input type="text" placeholder="USERNAME" name="username" required>
                     <input type="password" placeholder="PASSWORD" name="password" required>
