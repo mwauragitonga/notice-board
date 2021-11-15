@@ -18,8 +18,6 @@
     // Connection variables
    $conn =getConn();
 
-
-
     // Check connection
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
@@ -69,6 +67,7 @@
 				<p><a href='index.php'><strong>Please try again!</strong></a></p></div>";
     }
     }
+    mysqli_close($conn);
     ?>
 </div>
 

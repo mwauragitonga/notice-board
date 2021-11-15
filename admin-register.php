@@ -16,7 +16,7 @@
 
     <?php
 
-    include 'config.php';
+    include './config.php';
     $conn = getConn();
     // Check connection
     if (!$conn) {

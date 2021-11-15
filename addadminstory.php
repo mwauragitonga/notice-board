@@ -1,6 +1,6 @@
 <?php
 //including the database connection file
-include_once("config.php");
+include_once("./config.php");
 session_start();
 
 ?>
@@ -18,7 +18,7 @@ session_start();
 <?php
 if ($_SESSION['logged_in'] == true) {
     //Display this header when user has logged in
-    require_once('header.php');
+    require_once('./header.php');
 
 } else {
     //redirect to login if user  is not logged in

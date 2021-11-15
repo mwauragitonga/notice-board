@@ -1,6 +1,6 @@
 <?php
 //including the database connection file
-include_once("config.php");
+include_once("./config.php");
 $conn = getConn();
 // Check connection
 if (!$conn) {
@@ -12,7 +12,7 @@ $sql = "SELECT * FROM posts ORDER BY date_posted DESC";
 $result = mysqli_query($conn, $sql); // using mysqli_query
 $data = mysqli_fetch_all($result, MYSQLI_ASSOC);
  echo json_encode ($data);
-
+mysqli_close($conn);
 
 ?>
 

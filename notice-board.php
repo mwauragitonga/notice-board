@@ -33,7 +33,7 @@
                 //call function here every second
             $.ajax({
                 type: "GET",
-                url: "load_data.php",
+                url: "./load_data.php",
                 dataType: "json"
             }).done(function(data){
                 //storing array in localStorage
