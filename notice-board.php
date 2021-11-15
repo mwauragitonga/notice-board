@@ -48,7 +48,7 @@
                         content = '  <div class="col-lg-3" ><div class="card" id="card">' +
                             '<div class="card-body"> <h5 class="card-title" id="card-title"><span>title: </span>' + stored[i]["title"]  + '</h5>' +
                             '<small class="card-subtitle mb-2 text-muted" id="card-time"><span>date posted: ' +stored[i]["date_posted"] + ' </span></small>  <br><br>' +
-                            '<p class="card-text" id="card-text">' + stored[i]["message"] + '</p></div></div></div>'
+                            '<p class="card-text" id="card-text">' + (stored[i]["message"])  + '</p></div></div></div>'
 
 
                     //append data to fields
