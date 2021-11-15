@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <a href="dashboard.php" class="navbar-brand">Home</a>
             <form class="d-flex">
-               <a class="btn btn-outline-danger" href="../logout.php">  Logout</a>
+               <a class="btn btn-outline-danger" href="logout.php">  Logout</a>
             </form>
         </div>
 

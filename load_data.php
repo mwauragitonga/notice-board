@@ -1,6 +1,6 @@
 <?php
 //including the database connection file
-include_once("assets/db/config.php");
+include_once("config.php");
 $conn = getConn();
 // Check connection
 if (!$conn) {

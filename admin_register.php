@@ -16,7 +16,7 @@
 
     <?php
 
-    include '../assets/db/config.php';
+    include 'config.php';
     $conn = getConn();
     // Check connection
     if (!$conn) {
@@ -49,7 +49,7 @@
     if ($count == 1) {
         echo "<div class='alert alert-warning mt-4' role='alert'>
 					<p>That Username already exist. Login Instead</p>
-					<p><a href='../index.php'>Please login here</a></p>
+					<p><a href='index.php'>Please login here</a></p>
 				</div>";
     } else {
 
@@ -68,14 +68,14 @@
 
             if (mysqli_query($conn, $query)) {
                 echo "<div class='alert alert-success mt-4' role='alert'><h3>Your account has been created.</h3>
-		<a class='btn btn-outline-primary' href='../index.php' role='button'>Login</a></div>";
+		<a class='btn btn-outline-primary' href='index.php' role='button'>Login</a></div>";
             } else {
                 echo "Error: " . $query . "<br>" . mysqli_error($conn);
             }
         } else {
             echo "<div class='alert alert-warning mt-4' role='alert'>
 					<p>The passwords do not match</p>
-					<p><a href='../register.php'>Try again here</a></p>
+					<p><a href='admin_register.php'>Try again here</a></p>
 				</div>";
         }
     }

@@ -1,6 +1,6 @@
 <?php
 //including the database connection file
-include_once("../assets/db/config.php");
+include_once("config.php");
 session_start();
 
 ?>
@@ -10,8 +10,8 @@ session_start();
 <html lang="en">
 <head>
     <title> Live Notice Board System</title>
-    <link rel="stylesheet" type="text/css" href="../admin/css/style.css">
-    <link rel="stylesheet" type="text/css" href="../admin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
 </head>

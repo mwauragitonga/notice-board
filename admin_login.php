@@ -14,7 +14,7 @@
 <div class="container">
     <?php
     // Connection info. file
-    include '../assets/db/config.php';
+    include 'config.php';
 
     // Connection variables
     $conn =getConn();
@@ -45,7 +45,7 @@
     $row = mysqli_fetch_assoc($result);
     if($row == null){
         echo "<div class='alert alert-danger mt-4' role='alert'>User Not Found. Try Again!
-				<p><a href='../index.php'><strong>Please try again!</strong></a></p></div>";
+				<p><a href='index.php'><strong>Please try again!</strong></a></p></div>";
     }else{
 
 
@@ -61,11 +61,11 @@
         $_SESSION['user_id'] = $row['user_id'];
         $_SESSION['start'] = time();
 //redirect to dashboard
-        header('location: ../admin/dashboard.php');
+        header('location: dashboard.php');
 
     } else {
         echo "<div class='alert alert-danger mt-4' role='alert'>Invalid Credentials. Try Again!
-				<p><a href='../index.php'><strong>Please try again!</strong></a></p></div>";
+				<p><a href='index.php'><strong>Please try again!</strong></a></p></div>";
     }
     }
     ?>

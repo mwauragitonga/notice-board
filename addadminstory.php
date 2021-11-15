@@ -1,6 +1,6 @@
 <?php
 //including the database connection file
-include_once("../assets/db/config.php");
+include_once("config.php");
 session_start();
 
 ?>
@@ -13,7 +13,7 @@ session_start();
     <!--  Styles  -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="../admin/css/main.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <?php
 if ($_SESSION['logged_in'] == true) {
@@ -22,7 +22,7 @@ if ($_SESSION['logged_in'] == true) {
 
 } else {
     //redirect to login if user  is not logged in
-    header('location: ../index.php');
+    header('location: index.php');
 }
 ?>
 <body>
@@ -56,13 +56,9 @@ if ($_SESSION['logged_in'] == true) {
             function updateNoticeBoard() {
                 // Send AJAX request
                 $.ajax({
-                    url: '../load_data.php',
+                    url: 'load_data.php',
                     type: 'POST',
                     dataType: 'JSON',
-                    success:function(html){
-                        $('#show_more_main'+ID).remove();
-                        $('.postList').append(html);
-                    }
                 });
             }
         });
