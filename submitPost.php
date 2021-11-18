@@ -32,13 +32,13 @@ function test_input($data) {
     if (mysqli_query($conn, $query)) {
         $result= '<div id="alert" class="alert alert-success alert-dismissible" role="alert">
         Story was posted to notice board successfully!</div>';
-        $_SESSION['response'] = $result;
+        $_SESSION['response_post'] = $result;
 
         header('location: adminaddstory.php');
     } else {
         $result = '<div id="alert" class="alert alert-danger alert-dismissible" role="alert">
   Failed! Story was not posted to notice board. </div>';
-        $_SESSION['response'] = $result;
+        $_SESSION['response_post'] = $result;
 
         // echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }

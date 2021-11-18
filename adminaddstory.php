@@ -61,8 +61,8 @@ if ($_SESSION['logged_in'] != true) {
 
     <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
             <?php
-            if($_SESSION['response'] != null &&$_SESSION['response'] != '<div id="alert" class="alert alert-success" role="alert">Logged in successfully!</div>' ){
-                $result = $_SESSION['response'];
+            if($_SESSION['response_post'] != null ){
+                $result = $_SESSION['response_post'];
                 if(!empty($result)){echo $result; }
             }
             ?>
