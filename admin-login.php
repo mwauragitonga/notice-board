@@ -54,16 +54,17 @@
     if (password_verify($_POST['password'], $hash)) {
 //set session data
         session_start();
-
+        $result= '<div id="alert" class="alert alert-success" role="alert">Logged in successfully!</div>';
         $_SESSION['logged_in'] = true;
         $_SESSION['username'] = $row['username'];
         $_SESSION['user_id'] = $row['user_id'];
+        $_SESSION['response'] = $result;
         $_SESSION['start'] = time();
 //redirect to dashboard
-        header('location: dashboard.php');
+        header('location: admin-dashboard.php');
 
     } else {
-        echo "<div class='alert alert-danger mt-4' role='alert'>Invalid Credentials. Try Again!
+        echo "<div id='alert' class='alert alert-danger alert-dismissible mt-4' role='alert'>Invalid Credentials. Try Again!
 				<p><a href='index.php'><strong>Please try again!</strong></a></p></div>";
     }
     }

@@ -22,8 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 function test_input($data) {
     $data = trim($data);
-   // $data = stripslashes($data);
-   // $data = htmlspecialchars($data);
     return $data;
 }
 
@@ -32,10 +30,17 @@ function test_input($data) {
     $query = "INSERT INTO posts ( message,title, created_by) VALUES ('$message', '$title', '$created_by')";
 
     if (mysqli_query($conn, $query)) {
-        echo "<div class='alert alert-success mt-4' role='alert'><h3>Your story has been added.</h3></div>";
-        header('location: addadminstory.php');
+        $result= '<div id="alert" class="alert alert-success alert-dismissible" role="alert">
+        Story was posted to notice board successfully!</div>';
+        $_SESSION['response'] = $result;
+
+        header('location: adminaddstory.php');
     } else {
-        echo "Error: " . $query . "<br>" . mysqli_error($conn);
+        $result = '<div id="alert" class="alert alert-danger alert-dismissible" role="alert">
+  Failed! Story was not posted to notice board. </div>';
+        $_SESSION['response'] = $result;
+
+        // echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
 
     mysqli_close($conn);
