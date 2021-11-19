@@ -17,17 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // validate data
     $title = test_input($_POST["title"]);
     $message = test_input($_POST["message"]);
-    $created_by = test_input($_POST["user_id"]);
-
 }
 function test_input($data) {
     $data = trim($data);
     return $data;
 }
 
-
     // create insert query
-    $query = "INSERT INTO posts ( message,title, created_by) VALUES ('$message', '$title', '$created_by')";
+    $query = "INSERT INTO posts ( message,title) VALUES ('$message', '$title')";
 
     if (mysqli_query($conn, $query)) {
         $result= '<div id="alert" class="alert alert-success alert-dismissible" role="alert">
