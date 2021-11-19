@@ -1,12 +1,3 @@
-<?php
-//including the database connection file
-include_once("./config.php");
-session_start();
-if ($_SESSION['logged_in'] != true) {
-    //redirect to login if user  is not logged in
-    header('location: index.php');
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 

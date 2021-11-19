@@ -37,7 +37,6 @@ function test_input($data) {
   Failed! Story was not posted to notice board. </div>';
         $_SESSION['response_post'] = $result;
 
-        // echo "Error: " . $query . "<br>" . mysqli_error($conn);
     }
 
     mysqli_close($conn);
